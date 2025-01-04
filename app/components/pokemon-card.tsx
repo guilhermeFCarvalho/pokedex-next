@@ -18,7 +18,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
         <Image
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${pokemonNumber}.png`}
           width={120}
-          height={150}
+          height={120}
           alt={`${pokemon.name} image`}
           loading="lazy"
           className={styles.image}
@@ -26,11 +26,12 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
       </div>
       <h3 className={styles.name}>{pokemon.name}</h3>
       <div className={styles.actions}>
-        <button className={`${styles.button} ${styles.like}`}>Like</button>
-        <button className={`${styles.button} ${styles.dislike}`}>Dislike</button>
+        <button className={`${styles.button} ${styles.like}`} >Like</button>
+        <button className={`${styles.button} ${styles.dislike}`} >Dislike</button>
       </div>
     </div>
   );
 }
+
 
 

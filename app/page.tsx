@@ -17,8 +17,8 @@ export default async function PokemonListPage() {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        gap: "1rem",
+        gridTemplateColumns: "repeat(auto-fit, minmax(40%, 1fr))",
+        gap: "1.2rem",
         padding: "1rem",
       }}
     >
