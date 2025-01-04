@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono,Press_Start_2P } from "next/font/google";
+import {  } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -9,6 +10,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const pressStart2P = Press_Start_2P({
+  weight:"400",
+  variable: "--font-press-start",
   subsets: ["latin"],
 });
 
@@ -24,8 +31,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable}`}
+      >
+        <header
+          style={{
+            backgroundColor: "var(--tertiary)",
+            color: "white",
+            padding: "1rem",
+            textAlign: "center",
+            fontFamily: "var(--font-press-start)", 
+          }}
+        >
+          <h2>Pokedex</h2>
+        </header>
+
+        <main>{children}</main>
       </body>
     </html>
   );

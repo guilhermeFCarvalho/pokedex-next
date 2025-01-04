@@ -1,4 +1,4 @@
-import  PokemonCard  from "../src/components/pokemon-card";
+import PokemonCard from "./components/pokemon-card";
 
 async function fetchPokemon() {
   const res = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
@@ -13,14 +13,19 @@ export default async function PokemonListPage() {
   const pokemonList = await fetchPokemon();
 
   return (
-    <div>
-      <h2>Lista de Pokémon</h2>
-        {pokemonList.map((pokemon: { name: string; url: string }, index: number) => {
-          return (
-            <PokemonCard key={index} pokemon={pokemon}/>
-          );
-        })}
-      
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: "1rem",
+        padding: "1rem",
+      }}
+    >
+      {pokemonList.map((pokemon: { name: string; url: string }, index: number) => (
+        <PokemonCard key={index} pokemon={pokemon} />
+      ))}
     </div>
+
   );
 }
