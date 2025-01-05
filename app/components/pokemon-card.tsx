@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./pokemon-card.module.css";
+import { CardButtons } from "./card-buttons";
 
 
 type Pokemon = { name: string; url: string };
@@ -7,7 +8,7 @@ type Pokemon = { name: string; url: string };
 const getPokemonNumberFromUrl = (url: string): string | null => {
   const matches = url.match(/\/(\d+)\/$/);
   return matches ? matches[1] : null;
-};
+}
 
 export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
   const pokemonNumber = getPokemonNumberFromUrl(pokemon.url);
@@ -25,13 +26,13 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
         />
       </div>
       <h3 className={styles.name}>{pokemon.name}</h3>
-      <div className={styles.actions}>
-        <button className={`${styles.button} ${styles.like}`} >Like</button>
-        <button className={`${styles.button} ${styles.dislike}`} >Dislike</button>
-      </div>
+      <CardButtons {...pokemon} ></CardButtons>
+      
+    
     </div>
   );
 }
 
+ 
 
 
