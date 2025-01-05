@@ -20,7 +20,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
         <Image
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${pokemonNumber}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonNumber}.png`}
           width={120}
           height={120}
           alt={`${pokemon.name} image`}
