@@ -1,0 +1,56 @@
+.card {
+  background: linear-gradient(10deg, #f7ba3e, #ffffff); /* Tons vibrantes no estilo Pokémon */
+  border: 3px solid #000000; /* Borda preta como uma moldura */
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.imageWrapper {
+  background: linear-gradient(180deg, #ffd700, #ff6347);
+  border-radius: 50%;
+  padding: 8px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border: 3px solid #000000;
+}
+
+.image {
+  border: 4px solid #f3f306; 
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: #1b1b1b;
+  font-family: "Press Start 2P", sans-serif;
+  text-align: center;
+}
+
+.types {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #0066cc; 
+  
+}
+
+.abilities {
+  font-size: 0.85rem;
+  color: #333333;
+  text-transform: capitalize;
+
+}
+
+
