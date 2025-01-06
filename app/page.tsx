@@ -18,14 +18,21 @@ async function fetchPokemon() {
 
       return {
         name: pokemon.name,
-        url: pokemon.url,
         types: details.types.map((type: any) => type.type.name),
         abilities: details.abilities.map((ability: any) => ability.ability.name),
+        image: buildPokemonImageUrl(pokemon.url)
       };
     })
   );
 
   return detailedPokemon;
+}
+
+const buildPokemonImageUrl = (url: string): string => {
+  const matches = url.match(/\/(\d+)\/$/);
+  const pokemonNumber = matches ? matches[1] : '';
+
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonNumber}.png`
 }
 
 export default async function PokemonListPage() {
