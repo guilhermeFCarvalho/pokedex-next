@@ -2,8 +2,6 @@
 import { Pokemon } from "@/src/domain/models/pokemon";
 import styles from "./card-buttons.module.css";
 
-
-
 export function CardButtons(pokemon: Pokemon) {
 
     return (

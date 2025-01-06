@@ -3,13 +3,6 @@ import styles from "./pokemon-card.module.css";
 import { CardButtons } from "../card-buttons/card-buttons";
 import { Pokemon } from "@/src/domain/models/pokemon";
 
-
-
-
-
-
-
-
 export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
 
   return (
@@ -34,7 +27,7 @@ export default function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
         {pokemon.abilities.join(', ')}
       </p>
 
-      <CardButtons {... pokemon} />
+      <CardButtons {...pokemon} />
     </div>
   );
 }
