@@ -15,8 +15,6 @@ export class PokemonService implements IPokemonService{
                 const detailsRes = await fetch(pokemon.url);
           
                 const details : PokemonDetails = await detailsRes.json()
-
-
                 return {
                   pokemon: pokemon,
                   types: details.types.map((type: any) => type.type.name),
@@ -26,8 +24,6 @@ export class PokemonService implements IPokemonService{
               })
             );
             
-            console.log(detailedPokemon)
-
             return detailedPokemon;
           
     }

@@ -13,8 +13,8 @@ export function CardButtons(pokemonDetails: PokemonDetails) {
 
     return (
         <div className={styles.cardButtons}>
-            <button className={`${styles.button} ${styles.like}`} onClick={() => handleWebviewEvent({ liked: true, ...pokemonProps })}  >Like</button>
-            <button className={`${styles.button} ${styles.dislike}`} onClick={() => handleWebviewEvent({ liked: false, ...pokemonProps })} >Dislike</button>
+            <button data-testid={"btn-like"} className={`${styles.button} ${styles.like}`} onClick={() => handleWebviewEvent({ liked: true, ...pokemonProps })}  >Like</button>
+            <button data-testid={"btn-dislike"} className={`${styles.button} ${styles.dislike}`} onClick={() => handleWebviewEvent({ liked: false, ...pokemonProps })} >Dislike</button>
         </div>
     );
 }
