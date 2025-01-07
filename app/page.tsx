@@ -1,12 +1,11 @@
-import { Pokemon, PokemonDetails } from "@/src/domain/models/pokemon";
+import { PokemonDetails } from "@/src/domain/models/pokemon";
 import PokemonCard from "./components/pokemon-card/pokemon-card";
-import { PokemonService } from "@/src/infrastructure/services/pokemon.service";
+import { getPokemonList } from "./actions";
 
 
 
 export default async function PokemonListPage() {
-  const pokemonService: PokemonService = new PokemonService();
-  const pokemonList = await pokemonService.getPokemonList();
+  const pokemonList = await getPokemonList()
 
   return (
 

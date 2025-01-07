@@ -1,4 +1,4 @@
-.actions {
+.card-buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
@@ -6,6 +6,7 @@
   
   .button {
     padding: 0.5rem 1rem;
+    margin: .1rem;
     font-size: .8rem;
     font-weight: bold;
     text-transform: uppercase;

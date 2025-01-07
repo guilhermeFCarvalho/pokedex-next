@@ -11,6 +11,9 @@ export type PokemonDetails = {
 }
 
 export type PokemonLike = {
-  pokemon: Pokemon;
+  name: string,
+  image: string
+  types: string[],
+  abilities:string[],
   liked: boolean;
 }
