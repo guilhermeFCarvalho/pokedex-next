@@ -1,42 +1,12 @@
-import { Pokemon } from "@/src/domain/models/pokemon";
+import { Pokemon, PokemonDetails } from "@/src/domain/models/pokemon";
 import PokemonCard from "./components/pokemon-card/pokemon-card";
+import { PokemonService } from "@/src/infrastructure/services/pokemon.service";
 
-async function fetchPokemon() {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
-  if (!res.ok) {
-    throw new Error('Erro ao carregar os Pokémon');
-  }
-  const data = await res.json();
 
-  const detailedPokemon = await Promise.all(
-    data.results.map(async (pokemon: { name: string; url: string }) => {
-      const detailsRes = await fetch(pokemon.url);
-
-      const details = await detailsRes.json();
-
-      console.log(details)
-
-      return {
-        name: pokemon.name,
-        types: details.types.map((type: any) => type.type.name),
-        abilities: details.abilities.map((ability: any) => ability.ability.name),
-        image: buildPokemonImageUrl(pokemon.url)
-      };
-    })
-  );
-
-  return detailedPokemon;
-}
-
-const buildPokemonImageUrl = (url: string): string => {
-  const matches = url.match(/\/(\d+)\/$/);
-  const pokemonNumber = matches ? matches[1] : '';
-
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonNumber}.png`
-}
 
 export default async function PokemonListPage() {
-  const pokemonList = await fetchPokemon();
+  const pokemonService: PokemonService = new PokemonService();
+  const pokemonList = await pokemonService.getPokemonList();
 
   return (
 
@@ -48,8 +18,8 @@ export default async function PokemonListPage() {
         padding: "1rem",
       }}
     >
-      {pokemonList.map((pokemon: Pokemon, index: number) => (
-        <PokemonCard key={index} pokemon={pokemon} />
+      {pokemonList.map((pokemon: PokemonDetails, index: number) => (
+        <PokemonCard key={index} pokemonDetails={pokemon} />
       ))}
     </div>
 

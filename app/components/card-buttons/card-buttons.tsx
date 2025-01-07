@@ -1,8 +1,8 @@
 'use client'
-import { Pokemon } from "@/src/domain/models/pokemon";
+import { Pokemon, PokemonDetails } from "@/src/domain/models/pokemon";
 import styles from "./card-buttons.module.css";
 
-export function CardButtons(pokemon: Pokemon) {
+export function CardButtons(pokemon: PokemonDetails) {
 
     return (
         <div className={styles.actions}>
