@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokedex Next
+Este projeto é uma aplicação Next.js que consome a [PokeApi](<https://pokeapi.co/>) para exibir Pokemons em cards interativos. A aplicação envia eventos de like e dislike via postMessage. Esse projeto foi desenvolvido para ser integrado ao [Pokedex React Native](<https://github.com/guilhermeFCarvalho/pokedex-react-native>), que exibe a página principal em uma WebView e lida com os eventos recebidos.
 
-## Getting Started
+A estrutura e separação das pastas foi feita pensanda principalmente na testabilidade do código. Estão cobertos por testes:
+* principais componentes
+* actions 
+* services 
+* utilitários
 
-First, run the development server:
+
+## Como rodar o projeto
+
+Instale as dependências rodando o seguinte comando na pasta raiz do proketo:
+
+~~~bash
+npm install
+~~~
+
+Rode o servidor
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+O servidor vai ser iniciado em [http://localhost:3000](http://localhost:3000) 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para rodar os testes, execute o seguinte comando:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+~~~bash
+npm run test
+~~~
 
-## Learn More
+## Integração em aplicativos React Native
+Uma sugestão de integração em aplicativos React Native é utilizar o pacote [react-native-webview](<https://www.npmjs.com/package/react-native-webview>) e criar o componente da seguinte forma para garantir mais desempenho, lembrando de substituir o localhost pela url da sua aplicação rodando. 
 
-To learn more about Next.js, take a look at the following resources:
+~~~html
+    <WebView
+        source={{ uri: "http://localhost:3000" || "" }}
+        cacheEnabled={true}
+        cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
+        androidLayerType="hardware"
+        javaScriptEnabled={true}
+        onMessage={handleWebViewMessage}
+        startInLoadingState={true}
+        incognito={false}
+      />
+~~~
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Os eventos podem ser recebidos dessa forma, após receber é necessário realizar o parse do JSON e aplicar a lógica desejada. 
+~~~typescript
+(event: WebViewMessageEvent) => {
+    const { data } = event.nativeEvent;
+    const parsedData = safeParseJSON<T>(data);
+}
+~~~

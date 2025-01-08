@@ -10,5 +10,6 @@ export async function getPokemonList() : Promise<PokemonDetails[]>{
 
 }
 export function handleWebviewEvent(pokemonLike:PokemonLike){
+    //@ts-ignore
     window.ReactNativeWebView.postMessage(JSON.stringify(pokemonLike))
 }
