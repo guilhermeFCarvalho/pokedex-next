@@ -1,5 +1,5 @@
 # Pokedex Next
-Este projeto é uma aplicação Next.js que consome a [PokeApi](<https://pokeapi.co/>) para exibir Pokemons em cards interativos. A aplicação envia eventos de like e dislike via postMessage. Esse projeto foi desenvolvido para ser integrado ao [Pokedex React Native](<https://github.com/guilhermeFCarvalho/pokedex-react-native>), que exibe a página principal em uma WebView e lida com os eventos recebidos.
+Este projeto é uma aplicação Next.js que consome a [PokeApi](<https://pokeapi.co/>) para exibir Pokemons em cards interativos. A aplicação envia eventos de like e dislike via postMessage. Esse projeto foi desenvolvido para ser integrado ao [Pokedex React Native](<https://github.com/guilhermeFCarvalho/pokedex-react-native>), que exibe a página principal da aplicação em uma WebView e lida com os eventos recebidos.
 
 A estrutura e separação das pastas foi feita pensanda principalmente na testabilidade do código. Estão cobertos por testes:
 * principais componentes
