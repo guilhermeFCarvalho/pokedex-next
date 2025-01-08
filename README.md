@@ -10,7 +10,7 @@ A estrutura e separação das pastas foi feita pensando principalmente na testab
 
 ## Como rodar o projeto
 
-Instale as dependências rodando o seguinte comando na pasta raiz do proketo:
+Instale as dependências rodando o seguinte comando na pasta raiz do projeto:
 
 ~~~bash
 npm install
