@@ -30,7 +30,7 @@ Para rodar os testes, execute o seguinte comando:
 npm run test
 ~~~
 
-## Integração em aplicativos React Native
+## Integração com aplicativos React Native
 Uma sugestão de integração em aplicativos React Native é utilizar o pacote [react-native-webview](<https://www.npmjs.com/package/react-native-webview>) e criar o componente da seguinte forma para garantir mais desempenho, lembrando de substituir o localhost pela url da sua aplicação rodando. 
 
 ~~~html
